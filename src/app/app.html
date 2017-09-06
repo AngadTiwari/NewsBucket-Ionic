@@ -1,0 +1,22 @@
+<ion-menu [content]="content">
+  <!-- <ion-header>
+    <ion-toolbar>
+      <ion-title>News Channels</ion-title>
+    </ion-toolbar>
+  </ion-header> -->
+
+  <ion-content>
+      <ion-buttons>
+        <button ion-button clear>News Channels</button>
+      </ion-buttons>
+    <ion-list>
+      <button menuClose ion-item *ngFor="let page of pages" (click)="openPage(page)">
+        {{page.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipagee-to-go-back because it's pageoor UX to combine STGB with side menus -->
+<ion-nav [root]="page" #content swipageeBackEnabled="false"></ion-nav>

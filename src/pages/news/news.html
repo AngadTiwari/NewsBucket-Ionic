@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ title }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="news">
+    <ion-card *ngFor="let article of news.articles" (click)="itemTapped($event,article)">
+      <ion-card-content >
+      <img src="{{ article.urlToImage }}">
+          <div class="card-subtitle">
+              {{ article.publishedAt }}
+          </div>
+          <p>
+              {{ article.title }}
+          </p>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>
