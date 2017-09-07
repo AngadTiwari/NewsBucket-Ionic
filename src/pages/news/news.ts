@@ -21,9 +21,9 @@ export class NewsPage {
 
   itemTapped(event, item) {
     // That's right, we're pushing to ourselves!
-    this.navCtrl.push(NewsPage, {
+    /* this.navCtrl.push(NewsPage, {
       item: item
-    });
+    }); */
   }
   
   getNewsData(tag) {
