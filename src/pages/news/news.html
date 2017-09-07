@@ -11,7 +11,7 @@
   <ion-list *ngIf="news">
     <ion-card *ngFor="let article of news.articles" (click)="itemTapped($event,article)">
       <ion-card-content >
-      <img src="{{ article.urlToImage }}">
+      <img height="200px" src="{{ article.urlToImage }}">
           <div class="card-subtitle">
               {{ article.publishedAt }}
           </div>
