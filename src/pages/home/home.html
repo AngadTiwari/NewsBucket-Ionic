@@ -1,0 +1,16 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>{{ title }}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-tabs>
+        <ion-tab tabTitle="top" [root]="tabTop" [rootParams]="{source: source, sortBy: 'top'}"></ion-tab>
+        <ion-tab tabTitle="latest" [root]="tabLatest" [rootParams]="{source: source, sortBy: 'latest'}"></ion-tab>
+        <ion-tab tabTitle="popular" [root]="tabPopular" [rootParams]="{source: source, sortBy: 'popular'}"></ion-tab>
+    </ion-tabs>
+</ion-content>
