@@ -6,19 +6,19 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 
 @Component({
+  selector: 'app',
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-
   rootPage: any = HomePage;
-
   pages: Array<{title: string, source: string, component: any}>;
+  selectedPage: string = 'BBC News'; 
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
-    // used for an example of ngFor and navigation
+    // list out the pages with title, source & component
     this.pages = [
       { title: 'BBC News', source: 'bbc-news', component: HomePage },
       { title: 'Bloomberg', source: 'bloomberg', component: HomePage },
@@ -37,13 +37,11 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      this.nav.setRoot(this.rootPage, {title: 'BBC News', source: 'bbc-news'});
     });
   }
 
   openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
+    this.selectedPage = page.title;
     this.nav.setRoot(page.component, {title: page.title, source: page.source});
   }
 }

@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header *ngIf="!hideHeader">
     <ion-navbar>
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
@@ -8,9 +8,40 @@
 </ion-header>
 
 <ion-content>
-    <ion-tabs>
-        <ion-tab tabTitle="top" [root]="tabTop" [rootParams]="{source: source, sortBy: 'top'}"></ion-tab>
-        <ion-tab tabTitle="latest" [root]="tabLatest" [rootParams]="{source: source, sortBy: 'latest'}"></ion-tab>
-        <ion-tab tabTitle="popular" [root]="tabPopular" [rootParams]="{source: source, sortBy: 'popular'}"></ion-tab>
-    </ion-tabs>
+    <ion-list *ngIf="news!=null && !showErrorMsg">
+        <ion-card *ngFor="let article of news.articles" (click)="itemTapped($event, article)">
+            <ion-card-content >
+            <img height="200px" src="{{ article.urlToImage }}">
+                <div class="article-date">
+                    {{ article.publishedAt }}
+                </div>
+                <p class="article-title">
+                    {{ article.title }}
+                </p>
+            </ion-card-content>
+        </ion-card>
+    </ion-list>
+    <div>
+        <p class="showErrorMsg" *ngIf="showErrorMsg">{{ errorMsg }}</p>
+    </div>
 </ion-content>
+
+<ion-footer>
+    <ion-row>
+        <ion-col>
+            <button #top ion-button full icon-start color="{{ sortBy=='top' ? 'dark' : 'light' }}" (click)="tabChanged(0)">
+                <ion-icon name="md-home">top</ion-icon>
+            </button>
+        </ion-col>
+        <ion-col>
+            <button #latest ion-button full icon-start color="{{ sortBy=='latest' ? 'dark' : 'light' }}" (click)="tabChanged(1)">
+                <ion-icon name="md-star">latest</ion-icon>
+            </button>
+        </ion-col>
+        <ion-col>
+            <button #popular ion-button full icon-start color="{{ sortBy=='popular' ? 'dark' : 'light' }}" (click)="tabChanged(2)">
+                <ion-icon name="md-clock">popular</ion-icon>
+            </button>
+        </ion-col>
+    </ion-row>
+</ion-footer>
