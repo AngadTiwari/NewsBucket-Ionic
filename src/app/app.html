@@ -2,10 +2,10 @@
 
   <ion-content>
       <ion-buttons class="menuHeader">
-        <button ion-button clear>News Channels</button>
+        <button class="menuHeaderTitle" ion-button clear>News Channels</button>
       </ion-buttons>
     <ion-list class="menuContent">
-      <button menuClose ion-item *ngFor="let page of pages" color="{{ selectedPage==page.title ? 'dark' : 'transparent' }}" (click)="openPage(page)">
+      <button menuClose ion-item *ngFor="let page of pages" color="{{ selectedPage==page.title ? 'light' : 'transparent' }}" (click)="openPage(page)">
         {{page.title}}
       </button>
     </ion-list>

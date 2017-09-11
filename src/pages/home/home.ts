@@ -10,6 +10,7 @@ import { Component,
     AfterViewChecked,
     OnDestroy } from '@angular/core';
 import { LoadingController, Loading } from 'ionic-angular';
+import { DatePipe } from '@angular/common';
     
 import { NavController, NavParams, Tabs } from 'ionic-angular';
 import { DetailPage } from '../detail/detail';

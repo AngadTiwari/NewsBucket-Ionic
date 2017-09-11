@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, MenuController } from 'ionic-angular';
+import { DatePipe } from '@angular/common';
 
 @Component({
     selector: 'page-detail',

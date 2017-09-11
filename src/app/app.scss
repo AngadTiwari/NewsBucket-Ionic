@@ -17,7 +17,7 @@
 app {
     .menuHeader {
         height: 30%;
-        background-color: #E64A19;
+        background-color: #f53d3d;
         margin-bottom: 10px;
     }
     .menuHeader button {
@@ -29,5 +29,9 @@ app {
     .menuContent {
         background-color: transparent;
         padding: 6px;
+    }
+    .menuHeaderTitle {
+        font-size: 18px;
+        font-weight: bold;
     }
 }

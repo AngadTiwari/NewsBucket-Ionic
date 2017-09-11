@@ -1,7 +1,7 @@
 <ion-header *ngIf="!hideHeader">
     <ion-navbar>
         <button ion-button menuToggle>
-            <ion-icon name="menu"></ion-icon>
+            <ion-icon class="menu-icon" name="md-menu"></ion-icon>
         </button>
         <ion-title>{{ title }}</ion-title>
     </ion-navbar>
@@ -13,7 +13,7 @@
             <ion-card-content >
             <img height="200px" src="{{ article.urlToImage }}">
                 <div class="article-date">
-                    {{ article.publishedAt }}
+                    {{ article.publishedAt | date:'medium' }}
                 </div>
                 <p class="article-title">
                     {{ article.title }}
@@ -29,18 +29,18 @@
 <ion-footer>
     <ion-row>
         <ion-col>
-            <button #top ion-button full icon-start color="{{ sortBy=='top' ? 'dark' : 'light' }}" (click)="tabChanged(0)">
-                <ion-icon name="md-home">top</ion-icon>
+            <button #top ion-button full icon-start color="{{ sortBy=='top' ? 'transparent' : 'light' }}" (click)="tabChanged(0)">
+                <ion-icon name="md-home">Top</ion-icon>
             </button>
         </ion-col>
         <ion-col>
-            <button #latest ion-button full icon-start color="{{ sortBy=='latest' ? 'dark' : 'light' }}" (click)="tabChanged(1)">
-                <ion-icon name="md-star">latest</ion-icon>
+            <button #latest ion-button full icon-start color="{{ sortBy=='latest' ? 'transparent' : 'light' }}" (click)="tabChanged(1)">
+                <ion-icon name="md-star">Latest</ion-icon>
             </button>
         </ion-col>
         <ion-col>
-            <button #popular ion-button full icon-start color="{{ sortBy=='popular' ? 'dark' : 'light' }}" (click)="tabChanged(2)">
-                <ion-icon name="md-clock">popular</ion-icon>
+            <button #popular ion-button full icon-start color="{{ sortBy=='popular' ? 'transparent' : 'light' }}" (click)="tabChanged(2)">
+                <ion-icon name="md-heart">Popular</ion-icon>
             </button>
         </ion-col>
     </ion-row>
