@@ -19,15 +19,17 @@ import { AppCommunicator } from '../../providers/app-communicator';
 import { RemoteServiceProvider } from '../../providers/remote-service';
 import { Crop } from '@ionic-native/crop';
 
+import { Toast } from '@ionic-native/toast';
+
 @Component({
     selector: 'page-home',
     templateUrl: 'home.html'
-})
-export class HomePage  implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
+}) export class HomePage  implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
 
     @ViewChild('tab') tabButton: any;
     SORTBY: Array<string> = ["top", "latest", "popular"];
 
+    gplusProfile: Object;
     title: string;
     source: string;
     sortBy: string;
@@ -43,7 +45,10 @@ export class HomePage  implements OnChanges, OnInit, DoCheck, AfterContentInit, 
                 public loadingCtrl: LoadingController,
                 public remoteServiceProvider: RemoteServiceProvider, 
                 public appCommunicator: AppCommunicator,
-                public crop: Crop) {
+                public crop: Crop,
+                public toast: Toast) {
+
+        this.gplusProfile = navParams.get("GooglePlusProfile");
         this.title = navParams.get("title");
         this.source = navParams.get('source');
         this.sortBy = this.SORTBY[0];

@@ -1,6 +1,6 @@
 {
   "name": "NewsBucket-Ionic",
-  "app_id": "",
+  "app_id": "15e28527",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

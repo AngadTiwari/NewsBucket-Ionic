@@ -4,6 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
+import { LoginPage } from '../pages/login/login';
 
 @Component({
   selector: 'app',
@@ -11,7 +12,7 @@ import { HomePage } from '../pages/home/home';
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  rootPage: any = HomePage;
+  rootPage: any = LoginPage;
   pages: Array<{title: string, source: string, component: any}>;
   selectedPage: string = 'BBC News'; 
 

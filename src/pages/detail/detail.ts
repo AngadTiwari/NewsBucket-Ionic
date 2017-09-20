@@ -5,8 +5,7 @@ import { DatePipe } from '@angular/common';
 @Component({
     selector: 'page-detail',
     templateUrl: 'detail.html'
-})
-export class DetailPage {
+}) export class DetailPage {
     article: any;
     source: string;
     sortBy: string;

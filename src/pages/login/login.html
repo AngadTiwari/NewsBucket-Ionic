@@ -1,0 +1,17 @@
+<ion-content class="login-content">
+    <label class="login-label">login via</label>
+    <ion-grid class="login-grid">
+        <ion-row>
+            <ion-col>
+                <button ion-button>
+                    <ion-icon name="logo-facebook"> Facebook Login</ion-icon>
+                </button>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+                <button ion-button (click)="googlePlusLogin()">
+                        <ion-icon name="logo-googleplus"> Google Login</ion-icon>
+                </button>
+        </ion-row>
+    </ion-grid>
+</ion-content>

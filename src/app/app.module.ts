@@ -5,19 +5,23 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { DetailPage } from '../pages/detail/detail';
+import { LoginPage } from '../pages/login/login';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Toast } from '@ionic-native/toast'
 import { RemoteServiceProvider } from '../providers/remote-service';
 import { AppCommunicator } from '../providers/app-communicator';
 import { Crop } from '@ionic-native/crop';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
+import { GooglePlus } from '@ionic-native/google-plus';
 
 import { HttpModule } from '@angular/http'
 
 @NgModule({
   declarations: [
     MyApp,
+    LoginPage,
     HomePage,
     DetailPage
   ],
@@ -33,6 +37,7 @@ import { HttpModule } from '@angular/http'
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    LoginPage,
     HomePage,
     DetailPage
   ],
@@ -40,6 +45,8 @@ import { HttpModule } from '@angular/http'
     StatusBar,
     SplashScreen,
     Crop,
+    Toast,
+    GooglePlus,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     RemoteServiceProvider,
     AppCommunicator
