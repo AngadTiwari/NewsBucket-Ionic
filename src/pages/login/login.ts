@@ -4,7 +4,6 @@ import { NavController, NavParams } from 'ionic-angular';
 import { Toast } from '@ionic-native/toast';
 import { GooglePlus } from '@ionic-native/google-plus';
 
-
 import { HomePage } from '../home/home';
 
 @Component({
@@ -13,7 +12,7 @@ import { HomePage } from '../home/home';
 }) export class LoginPage {
 
     constructor(public navController: NavController, navParams: NavParams, private googlePlus: GooglePlus, private toast:Toast) {
-
+        //todo init variable
     }
 
     googlePlusLogin() {
