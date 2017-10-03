@@ -7,7 +7,14 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content> 
+    <ion-searchbar [(ngModel)]="newsSearchText" [showCancelButton]="shouldShowCancel" (ionInput)="onSearch($event)" (ionCancel)="onCancel($event)"></ion-searchbar>
+
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Loading..." refreshingSpinner="circles" refreshingText="Refreshing News...">
+        </ion-refresher-content>
+    </ion-refresher>
+    
     <ion-list *ngIf="news!=null && !showErrorMsg">
         <ion-card *ngFor="let article of news.articles" (click)="itemTapped($event, article)">
             <ion-card-content >
@@ -21,6 +28,7 @@
             </ion-card-content>
         </ion-card>
     </ion-list>
+
     <div>
         <p class="showErrorMsg" *ngIf="showErrorMsg">{{ errorMsg }}</p>
     </div>
