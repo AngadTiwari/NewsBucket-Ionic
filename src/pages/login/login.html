@@ -3,15 +3,18 @@
     <ion-grid class="login-grid">
         <ion-row>
             <ion-col>
-                <button ion-button>
-                    <ion-icon name="logo-facebook"> Facebook Login</ion-icon>
+                <button ion-button (click)="facebookLogin()">
+                    <ion-icon name="logo-facebook" color="facebook"> Facebook</ion-icon>
                 </button>
             </ion-col>
-        </ion-row>
-        <ion-row>
+            <ion-col>
+                <label class="seperator">or</label>
+            </ion-col>
+            <ion-col>
                 <button ion-button (click)="googlePlusLogin()">
-                        <ion-icon name="logo-googleplus"> Google Login</ion-icon>
+                    <ion-icon name="logo-googleplus" color="googleplus"> Google</ion-icon>
                 </button>
+            </ion-col>
         </ion-row>
     </ion-grid>
 </ion-content>

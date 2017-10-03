@@ -5,7 +5,7 @@
 </ion-header>
     
 <ion-content>
-    <img class="article-img" height="240px" width="100%" src="{{ article.urlToImage }}" (click)="openImage()" imageViewer>
+    <img *ngIf=article class="article-img" height="240px" width="100%" src="{{ article.urlToImage }}" (click)="openImage()" imageViewer>
     <div class="article-content">
         <p class="article-date">{{ article.publishedAt | date:'medium' }}</p>
         <p class="article-author">{{ article.author }}</p>

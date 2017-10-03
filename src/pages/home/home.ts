@@ -25,7 +25,7 @@ import { Toast } from '@ionic-native/toast';
     selector: 'page-home',
     templateUrl: 'home.html'
 }) export class HomePage  implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
-
+    
     @ViewChild('tab') tabButton: any;
     SORTBY: Array<string> = ["top", "latest", "popular"];
 

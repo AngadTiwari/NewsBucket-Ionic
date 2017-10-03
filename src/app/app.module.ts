@@ -15,6 +15,9 @@ import { AppCommunicator } from '../providers/app-communicator';
 import { Crop } from '@ionic-native/crop';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
 import { GooglePlus } from '@ionic-native/google-plus';
+import { IonicStorageModule } from '@ionic/storage';
+import { Facebook } from '@ionic-native/facebook';
+import { Deeplinks } from '@ionic-native/deeplinks';
 
 import { HttpModule } from '@angular/http'
 
@@ -32,7 +35,8 @@ import { HttpModule } from '@angular/http'
       tabsHideOnSubPages: true,
       pageTransition: 'ios-transition'
     }),
-    HttpModule
+    HttpModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -47,6 +51,8 @@ import { HttpModule } from '@angular/http'
     Crop,
     Toast,
     GooglePlus,
+    Facebook,
+    Deeplinks,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     RemoteServiceProvider,
     AppCommunicator

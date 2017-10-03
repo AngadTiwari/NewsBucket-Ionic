@@ -2,21 +2,24 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Storage } from '@ionic/storage';
+import { Deeplinks } from '@ionic-native/deeplinks';
 
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
+import { DetailPage } from '../pages/detail/detail';
 
 @Component({
   selector: 'app',
   templateUrl: 'app.html'
-})
-export class MyApp {
+}) export class MyApp {
+  
   @ViewChild(Nav) nav: Nav;
-  rootPage: any = LoginPage;
+  rootPage: any = HomePage;//this.storage.get("is_already_loggedin") ? LoginPage : HomePage;
   pages: Array<{title: string, source: string, component: any}>;
   selectedPage: string = 'BBC News'; 
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private storage:Storage, public deeplinks: Deeplinks) {
     this.initializeApp();
 
     // list out the pages with title, source & component
@@ -38,6 +41,18 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this.configDeeplinking();
+    });
+  }
+
+  configDeeplinking() {
+    // Convenience to route with a given nav
+    this.deeplinks.routeWithNavController(this.nav, {
+      '/buzzfeed-api': DetailPage, 
+    }).subscribe((match) => {
+      console.log('Successfully routed', match);
+    }, (nomatch) => {
+      console.warn('Unmatched Route', nomatch);
     });
   }
 
